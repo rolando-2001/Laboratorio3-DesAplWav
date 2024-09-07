@@ -1,0 +1,31 @@
+<div class="container p-4" style="margin-top:70px ;">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3 class="text-uppercase">CREAR CATEGORIA DE PRODUCTO</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/addcat" method="post">
+                        <div class="input-group mt-2">
+                            <label for="name" class="input-group-text">Nombre</label>
+                            <input class="form-control" type="text" name="nomcli" id="nomcli" placeholder="Nombre"
+                                autofocus required  value="{{categoria.name}}">
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="lastname" class="input-group-text">Descripción</label>
+                            <input class="form-control" type="text" name="apecli" id="apecli" placeholder="Descripcion"  value="{{categoria.descripcion}}"
+                                required>
+                        </div>
+                        <div class="form-group mt-4 d-grid gap-2">
+                            <button class="btn btn-secondary"> Guardar</button>
+                            <button class="btn btn-danger"><a class="nav-link  link-light" aria-current="page"
+                                    href="/listcat"> Cancelar</a></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

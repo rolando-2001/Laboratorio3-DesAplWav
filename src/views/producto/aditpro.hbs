@@ -1,0 +1,47 @@
+<div class="container p-4" style="margin-top:70px ;">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3 class="text-uppercase">ACTUALIZAR Producto</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/editpro/{{producto.id}}" method="post">
+                        <div class="input-group mt-2">
+                            <label for="nompro" class="input-group-text">Nombre</label>
+                            <input class="form-control" type="text" name="nompro" id="nompro" placeholder="Nombre del producto" 
+                            value="{{producto.nompro}}" autofocus required>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="despro" class="input-group-text">Descripción</label>
+                            <input class="form-control" type="text" name="despro" id="despro" placeholder="Descripción del producto" 
+                            value="{{producto.despro}}" required>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="prepro" class="input-group-text">Precio</label>
+                            <input class="form-control" type="number" step="0.01" name="prepro" id="prepro" placeholder="Precio del producto" 
+                            value="{{producto.prepro}}"required>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="stopro" class="input-group-text">Stock</label>
+                            <input class="form-control" type="number" name="stopro" id="stopro" placeholder="Stock del producto" 
+                            value="{{producto.stopro}}"required>
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="catpro" class="input-group-text">Categoría</label>
+                            <select class="form-control" name="catpro" id="catpro" required>
+                                <option value="{{producto.catpro}}" disabled selected>Seleccione una categoría</option>
+                                <option value="1">Electrónica</option>
+                                <option value="2">Ropa</option>
+                                <option value="3">Hogar</option>
+                            </select>
+                        </div>
+                        <div class="form-group mt-4 d-grid gap-2">
+                            <button class="btn btn-success" type="submit">Guardar</button>
+                            <a class="btn btn-danger" href="/listpro">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

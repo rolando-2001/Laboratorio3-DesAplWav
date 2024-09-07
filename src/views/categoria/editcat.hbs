@@ -1,0 +1,72 @@
+<div class="container p-4" style="margin-top:70px ;">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div id="alerta" role="alert"></div>
+
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3 class="text-uppercase">ACTUALIZAR CATEGORIAS</h3>
+                </div>
+                
+                <div class="card-body">
+                    <form action="/editcat/{{categoria.id}}" method="post">
+                        <div class="input-group mt-2">
+                            <label for="name" class="input-group-text">Nombre</label>
+                            <input class="form-control" type="text" name="nombre" id="nombre" placeholder="Nombre"
+                                value="{{categoria.nombre}}" >
+                        </div>
+                        <div class="input-group mt-2">
+                            <label for="lastname" class="input-group-text">Descripción</label>
+                            <input class="form-control" type="text" name="descripcion" id="descripcion" placeholder="Descripcion"
+                                value="{{categoria.descripcion}}" >
+                        </div>
+
+                        <div class="form-group mt-4 d-grid gap-2">
+                            <button class="btn btn-secondary"  id="actulizar"> Actualizar</button>
+                            <button class="btn btn-danger"><a class="nav-link  link-light" aria-current="page"
+                                    href="/listcat"> Cancelar</a></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+   const nombre = document.querySelector('#nombre');
+   const descripcion = document.querySelector('#descripcion');
+   const actulizar = document.querySelector('#actulizar');
+   const alerta = document.querySelector('#alerta');
+
+   actulizar.addEventListener('click', (event) => {
+        
+        let mensajes = [];
+
+        // Validaciones de los campos
+        if (nombre.value === '' && descripcion.value === '') {
+            mensajes.push('El nombre de la categoría y la descripción son obligatorios');
+        } else if (nombre.value === '') {
+            mensajes.push('El nombre de la categoría es obligatorio');
+        } else if (descripcion.value === '') {
+            mensajes.push('La descripción de la categoría es obligatoria');
+        }
+
+       
+        if (mensajes.length > 0) {
+            event.preventDefault();  
+            alerta.className = 'alert alert-danger';
+            alerta.textContent = mensajes;  
+            
+            
+            setTimeout(() => {
+                alerta.className = '';
+                alerta.textContent = '';
+            }, 2000);
+        } else {
+            
+            alerta.className = '';
+            alerta.textContent = '';
+        }
+   });
+</script>
